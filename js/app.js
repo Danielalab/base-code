@@ -3,9 +3,9 @@ window.onload = function() {
     
   // argumentos de getCurrentPosition (GEOLOCATION API) 
   let options = {
-    EnableHighAccuracy: true,
-    timeout: 6000,
-    maximunAge: 0
+    enableHighAccuracy: true,
+    timeout: Infinity,
+    maximumAge: 0
   };
 
   let success = function(position) {
@@ -72,5 +72,6 @@ window.onload = function() {
     }
   };
 
-  navigator.geolocation.getCurrentPosition(success, error, options);
+  //  navigator.geolocation.getCurrentPosition(success, error, options);
+  let wachID = navigator.geolocation.watchPosition(success, error, options);  
 };
